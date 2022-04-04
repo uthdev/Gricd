@@ -1,34 +1,60 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-// import HttpException from "exceptions/HttpException";
+import cors from 'cors';
+
+import { authRoutes } from './routes'
+import errorMiddleware from "./middleware/error.middleware";
+import connect from "./connections/init_mongodb";
+import client from './connections/init_redis'
+
 
 dotenv.config();
-
+connect();
+client
 const PORT = process.env.PORT || 5000;
 const app: Application = express();
 
 //helmet
 app.use(helmet());
 
+
+//logger
+app.use(logger('dev'));
+
+const corsOption = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOption));
+
 // Body parsing Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get(
-    "/",
-    async (req: Request, res: Response): Promise<Response> => {
-        return res.status(200).send({
-            message: "Hello World!",
-        });
-    }
-);
+//cookieParser
+app.use(cookieParser());
 
-try {
-  app.listen(PORT, (): void => {
-      console.log(`Connected successfully on port ${PORT}`);
+//app
+
+
+app.use('/auth', authRoutes);
+app.use('/*', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to the Gricd API',
   });
-} catch (error: any){
-  console.error(`Error occured: ${error.message}`);
-}
+});
+
+app.use(errorMiddleware)
+
+app.listen(PORT, async() => {
+  console.log(`Server started on port ${PORT}`)
+})
+
+export default app;
