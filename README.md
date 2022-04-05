@@ -52,17 +52,17 @@ The api is documented with [Postman](https://documenter.getpostman.com/view/6265
 
 ## API Information
 
-The API is hosted on [https://uthdev-premier.herokuapp.com/](https://uthdev-premier.herokuapp.com/)
+The API is hosted on [https://uthdev-gricd.herokuapp.com/](https://uthdev-gricd.herokuapp.com/)
 
-METHOD |  RESOURCE   |     DESCRIPTION                | ENDPOINTS
+<!-- METHOD |  RESOURCE   |     DESCRIPTION                | ENDPOINTS
 -------|-------------|--------------------------------|-----------
 GET    | ----        | Home page                      |`/`
-POST   |      | Create a fixture               |`/fixtures`
-GET    | fixture     | Get all fixtures               |`/fixtures/`
-GET    | fixture     | Get pending fixture            |`/fixtures?status=pending`
-GET    | fixture     | Get completed fixture          |`/fixtures?status=completed`
-PATCH  | fixture     | Update a fixture               |`/fixtures/:id`
-GET    | fixture     | Get a single fixture           |`/fixtures/:id`
+POST   |             | Create a books                 |`/books  s`
+GET    | books       | Get all books  s               |`/books  s/`
+GET    | books       | Get pending books              |`/books  s?status=pending`
+GET    | books       | Get completed books            |`/books  s?status=completed`
+PATCH  | books       | Update a books                 |`/books  s/:id`
+GET    | books       | Get a single books             |`/books  s/:id`
 DELETE | fixture     | Delete a product               |`/fixtures/:id`
 GET    | Team        | Get teams                      |`/teams`
 GET    | Team        | Get a teams                    |`/teams/:id`
@@ -73,7 +73,7 @@ POST   | User/Admin  | User signup                    |`/auth/signup`
 POST   | User/Admin  | User signin                    |`/auth/login`
 GET    | -----       | Search teams and fixtures      |`/search?q=`
 
----
+--- -->
 
 #### Clone
 
@@ -104,16 +104,6 @@ npm start
 ```
 
 ---
-
-## Test
-
-- To test the app
-
-> run test using the command below
-
-```shell
-npm run test
-```
 
 ---
 
