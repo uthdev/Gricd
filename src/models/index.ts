@@ -1,4 +1,3 @@
 export {default as User} from './user.model';
-export {default as Wallet} from './wallet.model';
-export {default as Funding} from './funding.model';
-export {default as Transaction } from './transaction.model';
+export { default as Book } from './book.model';
+export { default as Category } from './category.model';

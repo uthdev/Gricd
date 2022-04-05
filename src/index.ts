@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-import { authRoutes } from './routes'
+import { authRoutes, bookRoutes, categoryRoutes } from './routes'
 import errorMiddleware from "./middleware/error.middleware";
 import connect from "./connections/init_mongodb";
 import client from './connections/init_redis'
@@ -45,6 +45,8 @@ app.use(cookieParser());
 
 
 app.use('/auth', authRoutes);
+app.use('/books', bookRoutes);
+app.use('/categories', categoryRoutes);
 app.use('/*', (req, res) => {
   res.status(200).json({
     message: 'Welcome to the Gricd API',

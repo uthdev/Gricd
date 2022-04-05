@@ -31,7 +31,6 @@ class AuthenticationController {
         secure: true,
         sameSite: true,
       });
-      console.log(refresh_token);
       response.cookie('refresh_token', refresh_token, {
         maxAge: 60 * 60 * 30 * 1000, // 30 day
         httpOnly: true,

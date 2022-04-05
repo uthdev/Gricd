@@ -3,10 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config()
 
-const REDIS_CLOUD_URL = process.env.REDIS_CLOUD_URL ;
-console.log(REDIS_CLOUD_URL)
+const REDIS_CLOUD_URL = <string>process.env.REDIS_CLOUD_URL ;
 
-const client = createClient({});
+const client = createClient({
+  url: REDIS_CLOUD_URL,
+});
 
 
 (async () => {
