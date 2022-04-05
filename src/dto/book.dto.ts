@@ -1,4 +1,4 @@
-import { IsString, Length, IsMongoId, IsNumber, IsArray, ArrayUnique, IsOptional, IsISBN, IsDate } from 'class-validator';
+import { IsString, Length, IsMongoId, IsNumber, IsArray, ArrayUnique, IsOptional, IsISBN } from 'class-validator';
 import { IBook } from 'models/book.model';
 import { ICategory } from 'models/category.model';
 
