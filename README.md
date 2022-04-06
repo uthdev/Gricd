@@ -54,26 +54,24 @@ The api is documented with [Postman](https://documenter.getpostman.com/view/6265
 
 The API is hosted on [https://uthdev-gricd.herokuapp.com/](https://uthdev-gricd.herokuapp.com/)
 
-<!-- METHOD |  RESOURCE   |     DESCRIPTION                | ENDPOINTS
+METHOD |  RESOURCE   |     DESCRIPTION                | ENDPOINTS
 -------|-------------|--------------------------------|-----------
 GET    | ----        | Home page                      |`/`
-POST   |             | Create a books                 |`/books  s`
-GET    | books       | Get all books  s               |`/books  s/`
-GET    | books       | Get pending books              |`/books  s?status=pending`
-GET    | books       | Get completed books            |`/books  s?status=completed`
-PATCH  | books       | Update a books                 |`/books  s/:id`
-GET    | books       | Get a single books             |`/books  s/:id`
-DELETE | fixture     | Delete a product               |`/fixtures/:id`
-GET    | Team        | Get teams                      |`/teams`
-GET    | Team        | Get a teams                    |`/teams/:id`
-PATCH  | Team        | edit a team                    |`/teams/:id`
-POST   | Team        | Create a team                  |`/teams`
-DELETE | Team        | Delete a team                  |`/teams/:id`
-POST   | User/Admin  | User signup                    |`/auth/signup`
-POST   | User/Admin  | User signin                    |`/auth/login`
-GET    | -----       | Search teams and fixtures      |`/search?q=`
+POST   | books       | Create a books                 |`/books`
+GET    | books       | Get all books                  |`/books`
+PUT    | books       | Update a books                 |`/books/:bookId`
+GET    | books       | Get a single books             |`/books/:bookId`
+DELETE | books       | Delete a product               |`/books/:bookId`
+POST   | category    | Create a category              |`/categories`
+GET    | category    | Get categories                 |`/categories`
+GET    | category    | Get a category                 |`/categories/:categoryId`
+GET    | category    | Get category books             |`/categories/:categoryId/books`
+PATCH  | category    | edit a category                |`/categories/:categoryId`
+DELETE | category    | Delete a category              |`/categories/:categoryId`
+POST   | User        | User signup                    |`/auth/signup`
+POST   | User        | User signin                    |`/auth/login`
 
---- -->
+---
 
 #### Clone
 
@@ -103,9 +101,10 @@ touch .env
 npm start
 ```
 
----
+#### Assumptions
 
----
+- I assumed that a book belongs to only one category
+- I assumed that a category has many books
 
 ## Author
 
